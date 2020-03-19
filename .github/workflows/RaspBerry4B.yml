@@ -50,7 +50,6 @@ jobs:
           rm -f .config
           cp ../RaspBerry4B .config
           cp ../diy.sh diy.sh
-          chom +x diy.sh
           ../diy.sh
           
     - name: Make Defconfig
