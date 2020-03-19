@@ -10,10 +10,13 @@ name: RaspBerry4B
 on:
   schedule:
     - cron: 0 20 * * *
+  watch:
+    types: started
 #  push:
 #    branches: 
 #      - master
-
+env:
+  DIY_SH: diy.sh
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,6 +50,9 @@ jobs:
           cd openwrt
           rm -f .config
           cp ../RaspBerry4B .config
+          chmod +x $DIY_SH
+          cd openwrt
+          ../$DIY_SH
           
     - name: Make Defconfig
       run: |
