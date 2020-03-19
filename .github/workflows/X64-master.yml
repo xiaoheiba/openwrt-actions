@@ -47,7 +47,8 @@ jobs:
           cd openwrt
           rm -f .config
           cp ../x64-master .config
-          
+    - name: Modify IP Address
+      run: cd openwrt && sed -i 's/192.168.1.1/192.168.31.2/g' package/base-files/files/bin/config_generate          
     - name: Make Defconfig
       run: |
           cd openwrt
